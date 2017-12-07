@@ -13,7 +13,9 @@ app.use(bodyParser.json())
 // Configuring the database
 var dbConfig = require('./config/database.config.js');
 var mongoose = require('mongoose');
-mongoose.connect(dbConfig.url);
+mongoose.connect(dbConfig.url, {
+	useMongoClient: true
+});
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');
