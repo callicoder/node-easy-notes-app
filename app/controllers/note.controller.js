@@ -9,7 +9,6 @@ exports.create = function(req, res) {
     var note = new Note({title: req.body.title || "Untitled Note", content: req.body.content});
 
     note.save(function(err, data) {
-        console.log(data);
         if(err) {
             console.log(err);
             res.status(500).send({message: "Some error ocuured while creating the Note."});
